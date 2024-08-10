@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Trinity Tic Tac Toe</title>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <h1>Trinity Tic Tac Toe</h1>
+            <h2>No more ties, Always a winner!</h2>
+        </nav>
+    </header>
+
+
+    <!-- TUTORIAL -->
+    <section class="tutorial">
+        <button class="btn tut">How To Play</button>
+    </section>
+    <article class="tut1 tutor hidden">
+        <button class="close-modal close-modal1">&times;</button>
+        <h5>Game Setup</h5>
+        <p>There are three Tic Tac Toe grids (3x3 each).</p>
+        <p>Only the symbol "X" is used by both players</p>
+        <button class="gotwo btn go slide2">Next</button>
+    </article>
+    <article class="tut2 tutor hidden">
+        <button class="close-modal close-modal2">&times;</button>
+        <h5>Gameplay</h5>
+        <p>Players take turns placing one "X" on any of the three grids.</p>
+        <p>Each player can only place one "X" per turn.</p>
+        <p>Players can place their "X" on any of the available spots on any of the three grids.</p>
+        <button class="btn goone go slide1">Prev</button>
+        <button class="btn gotwo go slide3">Next</button>
+    </article>
+    <article class="tut3 tutor hidden"></article>
+
+    <!-- GAME -->
+     <section>
+        <p class="player">Player 1</p>
+     </section>
+    <section class="game">
+
+        <div class="t t1">
+            <button class="b ba"></button>
+            <button class="b ba"></button>
+            <button class="b ba"></button>
+            <button class="b ba"></button>
+            <button class="b ba"></button>
+            <button class="b ba"></button>
+            <button class="b ba"></button>
+            <button class="b ba"></button>
+            <button class="b ba"></button>
+        </div>
+        
+        <div class="t t2">
+            <button class="b bb"></button>
+            <button class="b bb"></button>
+            <button class="b bb"></button>
+            <button class="b bb"></button>
+            <button class="b bb"></button>
+            <button class="b bb"></button>
+            <button class="b bb"></button>
+            <button class="b bb"></button>
+            <button class="b bb"></button>
+        </div>
+        
+        <div class="t t3">
+            <button class="b bc"></button>
+            <button class="b bc"></button>
+            <button class="b bc"></button>
+            <button class="b bc"></button>
+            <button class="b bc"></button>
+            <button class="b bc"></button>
+            <button class="b bc"></button>
+            <button class="b bc"></button>
+            <button class="b bc"></button>
+        </div>
+
+
+    </section>
+
+
+    <!-- RESET -->
+    <section class="reset">
+        <button class="new btn">New Game</button>
+    </section>
+
+    <!-- END -->
+    <div class="hidden overlay"></div>
+    <script src="script.js"></script>
+</body>
+</html>
