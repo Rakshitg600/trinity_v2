@@ -157,7 +157,7 @@ const generateTurn=function(){
     if (blocked==3) return;
     while(true){
         let f = Math.trunc(Math.random() * 27) ;
-        if((f<9&&!blocked1)||(f>=9&&f<18&&!blocked2)||(f>=18&&f<27&&!blocked3))return f;
+        if((f<9&&!blocked1&&ba[f].disabled==false)||(f>=9&&f<18&&!blocked2&&bb[f-9].disabled==false)||(f>=18&&f<27&&!blocked3&&bc[f-18].disabled==false))return f;
     }
 }
 
