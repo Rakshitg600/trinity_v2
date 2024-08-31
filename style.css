@@ -22,6 +22,9 @@ nav{
 
 
 /*---TUTORIAL BUTTON----*/
+.tutorial{
+    padding-bottom: 2em;
+}
 .tut{
     width: 35vw;
     border-radius: 60px;
