@@ -1,8 +1,6 @@
 'use strict';
 
-
 /**IDEAS TO BE ADDED
- * BLUR
  * COMPUTER
  * UNDO AND ALLOW UNDO OPTION
  * SOUND 
@@ -11,7 +9,7 @@
  */
 
 
-//VARIABLES
+//QUERY SELECTORS
 let box=document.querySelectorAll(".b");
 let player=document.querySelector(".player");
 let tut=document.querySelector(".tut");
@@ -27,12 +25,19 @@ let closebtn1=document.querySelector(".close-modal1");
 let closebtn2=document.querySelector(".close-modal2");
 let newG=document.querySelector(".new");
 let slide2=document.querySelector(".slide2");
+let winner=document.querySelector(".winner");
+let congoHead=document.querySelector(".congo-head");
+let wins=document.querySelector(".wins");
 
-let turnO=1;
+//VARIABLES
+let turn=1;
 let blocked=0;
 let blocked1=false;
 let blocked2=false;
 let blocked3=false;
+let p=1;
+let q=1;
+let r=1;
 
 const patterns=[
     //horizontle
@@ -50,15 +55,27 @@ const patterns=[
 
 
 //FUNCTIONS
-
+const showWinner=function(){
+    winner.classList.remove("hidden");
+    over.classList.remove("hidden");
+    if(turn)congoHead.textContent=`Congratulations you won!!!`;
+    else congoHead.textContent=`You lost!, Better luck next time`;
+}
+const comp=function(){
+    if (blocked==3) return;
+    const f=generateTurn();
+    console.log(f);
+    if(f<9)pressedA(ba[f]);
+    else if(f<18)pressedB(bb[f-9]);
+    else pressedC(bc[f-18]);
+}
 const pressedA=function(bx){
-    if(blocked1)return;
+    if(blocked1){
+        p=0;
+        return;
+    }
     bx.innerText='X';
     bx.disabled=true;
-    if(turnO){
-        player.textContent=`Player 2`;
-    }
-    else player.textContent=`Player 1`;
     for(let j=0;j<patterns.length;j++){
         let p1=ba[patterns[j][0]].innerText;
         let p2=ba[patterns[j][1]].innerText;
@@ -73,23 +90,20 @@ const pressedA=function(bx){
                 for(let k=0;k<box.length;k++){
                     box[k].disabled=true;
                 }
-                //showWinner();
-                console.log(`winner is ${turnO}`);
+                showWinner();
             }
-            //blur the blocked table
             break;
         }
     }
-    turnO=!turnO;
+    turn=!turn;
 }
 const pressedB=function(bx){
-    if(blocked2)return;
+    if(blocked2){
+        q=0;
+        return;
+    }
     bx.innerText='X';
     bx.disabled=true;
-    if(turnO){
-        player.textContent=`Player 2`;
-    }
-    else player.textContent=`Player 1`;
     for(let j=0;j<patterns.length;j++){
         let p1=bb[patterns[j][0]].innerText;
         let p2=bb[patterns[j][1]].innerText;
@@ -104,23 +118,20 @@ const pressedB=function(bx){
                 for(let k=0;k<box.length;k++){
                     box[k].disabled=true;
                 }
-                //showWinner();
-                console.log(`winner is ${turnO}`);
+                showWinner();
             }
-            //blur the blocked table
             break;
         }
     }
-    turnO=!turnO;
+    turn=!turn;
 }
 const pressedC=function(bx){
-    if(blocked3)return;
+    if(blocked3){
+        r=0;
+        return;
+    }
     bx.innerText='X';
     bx.disabled=true;
-    if(turnO){
-        player.textContent=`Player 2`;
-    }
-    else player.textContent=`Player 1`;
     for(let j=0;j<patterns.length;j++){
         let p1=bc[patterns[j][0]].innerText;
         let p2=bc[patterns[j][1]].innerText;
@@ -135,31 +146,41 @@ const pressedC=function(bx){
                 for(let k=0;k<box.length;k++){
                     box[k].disabled=true;
                 }
-                //showWinner();
-                console.log(`winner is ${turnO}`);
+                showWinner();
             }
-            //blur the blocked table
             break;
         }
     }
-    turnO=!turnO;
+    turn=!turn;
 }
-
+const generateTurn=function(){
+    if (blocked==3) return;
+    while(true){
+        let f = Math.trunc(Math.random() * 27) ;
+        if((f<9&&!blocked1)||(f>=9&&f<18&&!blocked2)||(f>=18&&f<27&&!blocked3))return f;
+    }
+}
 
 //DOM MANIPULATION
 for (let i = 0; i < ba.length; i++) {
     ba[i].addEventListener('click', function() {
         pressedA(ba[i]);
+        if(p)comp();
+        if(blocked==3)showWinner();
     });
 }
 for (let i = 0; i < bb.length; i++) {
     bb[i].addEventListener('click', function() {
         pressedB(bb[i]);
+        if(q)comp();
+        if(blocked==3)showWinner();
     });
 }
 for (let i = 0; i < bc.length; i++) {
     bc[i].addEventListener('click', function() {
         pressedC(bc[i]);
+        if(r)comp();
+        if(blocked==3)showWinner();
     });
 }
 tut.addEventListener('click',()=>{
@@ -203,12 +224,6 @@ closebtn2.addEventListener('click',()=>{
     }
 });
 newG.addEventListener('click',()=>{
-    console.log("hello");
-    turnO=!turnO;
-    if(turnO){
-        player.textContent=`Player 1`;
-    }
-    else player.textContent=`Player 2`;
     blocked=0;
     blocked1=false;
     blocked2=false;
@@ -218,5 +233,9 @@ newG.addEventListener('click',()=>{
         box[p].disabled=false;
         box[p].classList.remove("band");
     }
+});
+wins.addEventListener('click',()=>{
+    winner.classList.add("hidden");
+    over.classList.add("hidden");
 });
 

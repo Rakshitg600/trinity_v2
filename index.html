@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon-32x32.png">
     <title>Trinity Tic Tac Toe</title>
 </head>
 <body>
@@ -11,7 +12,9 @@
     <!-- HEADER -->
     <header>
         <nav>
+            <img src="pic.jpg" width="80px" height="80px" class="logo" alt="">
             <h1>Trinity Tic Tac Toe</h1>
+            <br>
             <h2>No more ties, Always a winner!</h2>
         </nav>
     </header>
@@ -19,23 +22,23 @@
 
     <!-- TUTORIAL -->
     <section class="tutorial">
-        <button class="btn tut">How To Play</button>
+        <button type="button" class="btn tut">How To Play</button>
     </section>
     <article class="tut1 tutor hidden">
-        <button class="close-modal close-modal1">&times;</button>
+        <button type="button" class="close-modal close-modal1">&times;</button>
         <h5>Game Setup</h5>
         <p>There are three Tic Tac Toe grids (3x3 each).</p>
         <p>Only the symbol "X" is used by both players</p>
-        <button class="gotwo btn go slide2">Next</button>
+        <button type="button" class="gotwo btn go slide2">Next</button>
     </article>
     <article class="tut2 tutor hidden">
-        <button class="close-modal close-modal2">&times;</button>
+        <button type="button" class="close-modal close-modal2">&times;</button>
         <h5>Gameplay</h5>
         <p>Players take turns placing one "X" on any of the three grids.</p>
         <p>Each player can only place one "X" per turn.</p>
         <p>Players can place their "X" on any of the available spots on any of the three grids.</p>
-        <button class="btn goone go slide1">Prev</button>
-        <button class="btn gotwo go slide3">Next</button>
+        <button type="button" class="btn goone go slide1">Prev</button>
+        <button type="button" class="btn gotwo go slide3">Next</button>
     </article>
     <article class="tut3 tutor hidden"></article>
 
@@ -46,48 +49,54 @@
     <section class="game">
 
         <div class="t t1">
-            <button class="b ba"></button>
-            <button class="b ba"></button>
-            <button class="b ba"></button>
-            <button class="b ba"></button>
-            <button class="b ba"></button>
-            <button class="b ba"></button>
-            <button class="b ba"></button>
-            <button class="b ba"></button>
-            <button class="b ba"></button>
+            <button class="b ba" id="b1"></button>
+            <button class="b ba" id="b2"></button>
+            <button class="b ba" id="b3"></button>
+            <button class="b ba" id="b4"></button>
+            <button class="b ba" id="b5"></button>
+            <button class="b ba" id="b6"></button>
+            <button class="b ba" id="b7"></button>
+            <button class="b ba" id="b8"></button>
+            <button class="b ba" id="b9"></button>
         </div>
         
         <div class="t t2">
-            <button class="b bb"></button>
-            <button class="b bb"></button>
-            <button class="b bb"></button>
-            <button class="b bb"></button>
-            <button class="b bb"></button>
-            <button class="b bb"></button>
-            <button class="b bb"></button>
-            <button class="b bb"></button>
-            <button class="b bb"></button>
+            <button class="b bb" id="b10"></button>
+            <button class="b bb" id="b11"></button>
+            <button class="b bb" id="b12"></button>
+            <button class="b bb" id="b13"></button>
+            <button class="b bb" id="b14"></button>
+            <button class="b bb" id="b15"></button>
+            <button class="b bb" id="b16"></button>
+            <button class="b bb" id="b17"></button>
+            <button class="b bb" id="b18"></button>
         </div>
         
         <div class="t t3">
-            <button class="b bc"></button>
-            <button class="b bc"></button>
-            <button class="b bc"></button>
-            <button class="b bc"></button>
-            <button class="b bc"></button>
-            <button class="b bc"></button>
-            <button class="b bc"></button>
-            <button class="b bc"></button>
-            <button class="b bc"></button>
+            <button class="b bc" id="b19"></button>
+            <button class="b bc" id="b20"></button>
+            <button class="b bc" id="b21"></button>
+            <button class="b bc" id="b22"></button>
+            <button class="b bc" id="b23"></button>
+            <button class="b bc" id="b24"></button>
+            <button class="b bc" id="b25"></button>
+            <button class="b bc" id="b26"></button>
+            <button class="b bc" id="b27"></button>
         </div>
 
 
     </section>
 
+    <!-- WINNER -->
+    <section class="winner hidden">
+        <h5 class="congo-head">Congrats</h5>
+        <button type="button" class="new btn wins">New Game</button>
+    </section>
+
 
     <!-- RESET -->
     <section class="reset">
-        <button class="new btn">New Game</button>
+        <button type="button" class="new btn">New Game</button>
     </section>
 
     <!-- END -->

@@ -2,42 +2,44 @@
 *{
     margin: 0;
     padding: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 body{
     background-color: black;
     text-align: center;
+    font-family: Arial, sans-serif;
 }
 
-
-
-
-/*---TUTORIAL BUTTON----*/
+/*---NAVBAR---*/
 nav{
     background-color: rgb(255, 87, 34);
     text-align: center;
-    height: 100px;
+    padding: 20px 0;
     color:white;
+    background-color: rgb(134, 54, 200);
     
 }
-h1{
-    padding-top: 20px;
+
+
+/*---TUTORIAL BUTTON----*/
+.tut{
+    width: 35vw;
+    border-radius: 60px;
+    color: #fff;
+    font-size: medium;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background-color: rgb(134, 54, 200);
+    padding: 1.2em;
+    margin-top: 1em;
 }
-.btn{
-    height: 50px;
-    width: 100px;
-    border-radius: 15px;
-    margin-top: 20px;
-    background-color: rgb(255, 87, 34);
-    border: none;
-    margin-bottom: 40px;
-    color:white;
-}
-.btn:hover{
-    background-color: rgb(203, 47, 0);
-}
+
+
+
+/*---TUTORIAL ARTICLES---*/
 .tutor{
     position: fixed;
-    color: white;
+    color: black;
     z-index: 20;
     left: 50%;
     top: 50%;
@@ -45,13 +47,12 @@ h1{
     max-width: 700px;
     padding: 20px;
     transform: translate(-50%, -50%);
-    border: 2px red solid;
-    background-color: rgb(255,146,72);
+    background-color: rgb(134, 54, 200);
     box-sizing: border-box;
     overflow: auto;
     border-radius: 20px;
+    max-height: 100%;
   }
-
 .close-modal {
   position: absolute;
   top: 0;
@@ -63,14 +64,17 @@ h1{
   cursor: pointer;
   }
 h5{
-    font-size: 80px;
+    font-size: 4em;
     margin-bottom: 10px;
 }
 p{
-    font-size: 30px;
+    font-size: 1.5em;
 }
 .go{
     margin-bottom: 0px;
+    padding: 1em 4em;
+    border-radius: 10px;
+    margin-top: 1em;
 }
 .gotwo{
     float: right;
@@ -78,20 +82,24 @@ p{
 .goone{
     float: left;
 }
-
+.logo{
+    position: absolute;
+    left: 20px;
+}
 
 /*---GAME----*/
 .player{
     color:white;
-    font-size:60px;
+    font-size: 4em;
 }
 .game{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
 }
 .t{
-    width: 33%;
+    width: 25%;
     display: flex;
     gap:0;
     gap: 10px;
@@ -99,10 +107,9 @@ p{
     justify-content: center;
 }
 .b{
-    width: 26%;
-    /*padding-top: 26%;*/
+    width: 25%;
     height: 100px;
-    font-size: 20px;
+    font-size: 2.5em;
     color: #fff;
     background-color: #fff;
     border:none;
@@ -110,11 +117,11 @@ p{
     cursor: pointer;
 }
 .b:hover{
-    background-color:rgb(255, 146, 72);
+    background-image:linear-gradient(rgb(140, 39, 218),rgb(233, 227, 238));
 }
 .b:disabled {
     cursor: not-allowed;
-    background-color: rgb(255, 87, 34);
+    background-color: rgb(134, 88, 200);
 }
 .band{
     visibility: visible;
@@ -124,8 +131,41 @@ p{
 }
 
 
+/*---WINNER----*/
+.winner{
+    text-align: center;
+    position: fixed;
+    z-index: 20;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    background-color: rgb(134, 88, 200);
+    color: white;
+    border-radius: 20px;
+    padding: 50px;
+}
+.congo-head{
+    font-size: 3em;
+    padding-bottom: 25px;
+}
+.wins{
+    margin-bottom: 0px;
+    background-color: white;
+    color: rgb(134, 88, 200);
+    border: 0;
+}
 /*---RESET----*/
-
+.new{
+    width: 15vw;
+    border-radius: 60px;
+    color: #fff;
+    font-size: medium;
+    font-weight: bolder;
+    text-transform: uppercase;
+    background-color: rgb(134, 54, 200);
+    padding: 1em;
+    margin-top: 1em;
+}
 
 /*---UTILITY----*/
 .hidden{
@@ -138,7 +178,47 @@ p{
     width: 100%;
     height: 100%;
     z-index: 5;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.7);
     filter: blur(10px);
 }
+.tut:hover{
+    background-image:linear-gradient(rgb(154, 54, 230),rgb(202, 157, 239))
+}
+.btn:hover{
+    background-image:linear-gradient(rgb(154, 54, 230),rgb(202, 157, 239))
+}
 
+@media(max-width:768px){
+    .t{
+        width: 50%;
+        margin-bottom: 50px;
+    }
+    h5{
+        font-size: 2.5em;
+    }
+    p{
+        font-size: 1.5em;
+    }
+}
+@media(max-width:480px){
+    .t{
+        width: 100%;
+        margin-bottom: 4em;
+    }
+    h5{
+        font-size: 2em;
+    }
+    p{
+        font-size: 1em;
+    }
+    .congo-head{
+        padding: 1em;
+        font-size: 2em;
+    }
+    .wins{
+        margin-bottom: 3em;
+    }
+    .winner{
+        padding: 0;
+    }
+}
